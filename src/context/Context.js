@@ -11,7 +11,7 @@ function ApiProvider({ children }) {
       const { results } = await fetch(endpoint).then((datas) => datas.json());
       results.forEach((result) => { delete result.residents; });
       setData(results);
-    };    
+    };
     getPlanets();
   }, []);
   const context = { data };

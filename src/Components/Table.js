@@ -16,13 +16,13 @@ function Table() {
     'films',
     'created',
     'edited',
-    'url'];  
+    'url'];
 
   return (
 
     <table className="table">
       <thead>
-        <tr>       
+        <tr>
           {header.map((key, index) => (
             <th key={ index }>{key}</th>
           ))}
