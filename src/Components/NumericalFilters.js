@@ -1,0 +1,38 @@
+import React, { useContext } from 'react';
+import { Context } from '../context/Context';
+
+function NumericalFilters(){
+    const { state, setState } = useContext(Context);
+    const handleColumn = ({ target: { value } }) => {
+        setState({ ...state, column: value});
+    };
+    const handleComparison = ({target : { value }}) => {
+        setState({...state, comparison: value});
+    };
+    const handleNumberInput = ({ target : { value }}) => {
+        // setState({...state, value: value});
+        setState({ ...state, filterByNumericValues: [{...state, value: value}]});
+    };  
+
+
+    return(
+    <div>
+        <select data-testid='column-filter' onChange={handleColumn}>
+            <option value="population">population</option>
+            <option value="orbital_period">orbital_period</option>
+            <option value="diameter">diameter</option>
+            <option value="rotation_period">rotation_period</option>
+            <option value="surface_water">surface_water</option>
+        </select>
+        <select data-testid='comparison-filter' onChange={handleComparison}>
+            <option value="maior_que">maior que</option>
+            <option value="menor_que">menor que</option>
+            <option value="igual">igual a</option>
+        </select>
+        <input type="number" data-testid='value-filter' onChange={handleNumberInput}/>
+        <button type='buton' data-testid='button-filter'>Filtrar</button>
+    </div>
+    )
+}
+
+export default NumericalFilters;

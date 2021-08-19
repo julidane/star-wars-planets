@@ -4,7 +4,13 @@ import PropTypes from 'prop-types';
 const Context = createContext();
 function ApiProvider({ children }) {
   const [data, setData] = useState([]);
-  const [state, setState] = useState({ filters: { filtersByName: { name: '' } } });
+  const [state, setState] = useState({ filters: { filtersByName: { name: '' } }, filterByNumericValues: [
+    {
+      column: '',
+      comparison: '',
+      value: '',
+    }
+  ] });
 
   useEffect(() => {
     const getPlanets = async () => {

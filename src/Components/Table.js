@@ -4,7 +4,7 @@ import { Context } from '../context/Context';
 function Table() {
   let { data } = useContext(Context);
   const { state } = useContext(Context);
-  const { name: filteredName } = state;
+  const { name: filteredName, column } = state;
 
   const header = ['name',
     'rotation_period',
@@ -22,6 +22,10 @@ function Table() {
 
   if (filteredName) {
     data = data.filter((pName) => pName.name.toLowerCase().includes(filteredName));
+  }
+
+  if(column) {
+      data = data.filter((pColumns) => Object.keys(pColumns).includes(column));
   }
   return (
     <div>
