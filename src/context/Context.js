@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 const Context = createContext();
 function ApiProvider({ children }) {
   const [data, setData] = useState([]);
+  const [state, setState] = useState({ filters: { filtersByName: { name: '' } } });
 
   useEffect(() => {
     const getPlanets = async () => {
@@ -14,7 +15,7 @@ function ApiProvider({ children }) {
     };
     getPlanets();
   }, []);
-  const context = { data };
+  const context = { data, state, setState };
 
   return (
     <Context.Provider value={ context }>
