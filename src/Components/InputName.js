@@ -6,6 +6,8 @@ function InputName() {
 
   const handleInput = ({ target: { value } }) => {
     setState({ ...state, name: value });
+    // setState({ ...state, filtersByName:{name: value }});
+    // setState({ filters: { filtersByName: { name: value } } } );
   };
 
   return (

@@ -5,19 +5,40 @@ import Table from './Table';
 import NumericalFilters from './NumericalFilters';
 
 function AllComponents() {
-//   const { state, setState } = useContext(Context);
+  let { data } = useContext(Context);
+  const { state } = useContext(Context);
+  const { name: filteredName, column, value, filtersOn } = state;
+  const { comparison } = state;
 
-//   const handleInput = ({ target: { value } }) => {
-//     setState({ ...state, name: value });
-//   };
+  if (filteredName) {
+    data = data.filter((pName) => pName.name.toLowerCase().includes(filteredName));
+  }
+
+  if (filtersOn) {
+    console.log(typeof data[0].diameter);
+    console.log(typeof value);
+    switch (comparison) {
+    case 'maior que':
+      data = data.filter((plnt) => parseInt(plnt[column], 10) > parseInt(value, 10));
+      break;
+    case 'menor que':
+      data = data.filter((plnt) => parseInt(plnt[column], 10) < parseInt(value, 10));
+      break;
+    case 'igual a':
+      data = data.filter((plnt) => plnt[column] === value);
+      break;
+    default:
+      data = data.filter((plnt) => parseInt(plnt[column], 10) > parseInt(value, 10));
+    }
+  }
 
   return (
     <div>
-      <InputName/>
+      <InputName />
       <form>
-          <NumericalFilters/>
+        <NumericalFilters />
       </form>
-      <Table/>
+      <Table data={ data } />
     </div>
   );
 }

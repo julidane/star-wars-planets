@@ -1,10 +1,8 @@
-import React, { useContext } from 'react';
-import { Context } from '../context/Context';
+import React from 'react';
+import PropTypes from 'prop-types';
 
-function Table() {
-  let { data } = useContext(Context);
-  const { state } = useContext(Context);
-  const { name: filteredName, column } = state;
+function Table(props) {
+  const { data } = props;
 
   const header = ['name',
     'rotation_period',
@@ -18,15 +16,9 @@ function Table() {
     'films',
     'created',
     'edited',
-    'url'];
+    'url',
+  ];
 
-  if (filteredName) {
-    data = data.filter((pName) => pName.name.toLowerCase().includes(filteredName));
-  }
-
-  if(column) {
-      data = data.filter((pColumns) => Object.keys(pColumns).includes(column));
-  }
   return (
     <div>
       <table className="table">
@@ -78,5 +70,11 @@ function Table() {
 
   );
 }
+
+Table.propTypes = {
+  data: PropTypes.arrayOf(PropTypes.shape({
+    name: PropTypes.string.isRequired,
+  })).isRequired,
+};
 
 export default Table;
