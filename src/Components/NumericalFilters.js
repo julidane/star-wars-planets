@@ -1,35 +1,31 @@
 import React, { useContext } from 'react';
 import { Context } from '../context/Context';
+import PropTypes from 'prop-types';
 
-function NumericalFilters() {
-  const { state, setState } = useContext(Context);
-  // let { data } = useContext(Context);
-  const handleColumn = ({ target: { value } }) => {
-    setState({ ...state, column: value, filtersOn: false });
-    // setState({filters:{...state}, filterByNumericValues:[{...state, column:value}]});
-    // setState({filterByNumericValues:[{...state, column:value}]});
+function NumericalFilters(props) {
+  const { options } = props;
+
+  const { state, setState } = useContext(Context);  
+  const handleColumn = ({ target: { value } }) => { 
+    setState({ ...state, column: value, filtersOn: false, columnChange: false });
   };
-  const handleComparison = ({ target: { value } }) => {
-    setState({ ...state, comparison: value, filtersOn: false });
-    // setState({filters:{...state}, filterByNumericValues:[{...state, comparison:value}]});
+  const handleComparison = ({ target: { value } }) => {    
+    setState({ ...state, comparison: value });
   };
-  const handleNumberInput = ({ target: { value } }) => {
-    setState({ ...state, value, filtersOn: false });
-    // setState({ ...state, filterByNumericValues: [{...state, value: value}]});
+  const handleNumberInput = ({ target: { value } }) => {    
+    setState({ ...state, value });    
   };
 
   const handleSubmit = () => {
-    setState({ ...state, filtersOn: true });
+    setState({ ...state, filtersOn: true, columnChange: true });
   };
 
   return (
     <div>
       <select data-testid="column-filter" onChange={ handleColumn }>
-        <option value="population">population</option>
-        <option value="orbital_period">orbital_period</option>
-        <option value="diameter">diameter</option>
-        <option value="rotation_period">rotation_period</option>
-        <option value="surface_water">surface_water</option>
+        {options.map((option, index) => (
+          <option key={ index } value={ option.value }>{option.label}</option>
+        ))}
       </select>
       <select data-testid="comparison-filter" onChange={ handleComparison }>
         <option value="maior que">maior que</option>
@@ -47,5 +43,12 @@ function NumericalFilters() {
     </div>
   );
 }
+
+NumericalFilters.propTypes = {
+  options: PropTypes.arrayOf(PropTypes.shape({
+    value: PropTypes.string.isRequired,
+    label: PropTypes.string.isRequired,
+  })).isRequired,
+};
 
 export default NumericalFilters;
