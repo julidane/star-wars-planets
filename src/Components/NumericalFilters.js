@@ -1,19 +1,19 @@
 import React, { useContext } from 'react';
-import { Context } from '../context/Context';
 import PropTypes from 'prop-types';
+import { Context } from '../context/Context';
 
 function NumericalFilters(props) {
   const { options } = props;
 
-  const { state, setState } = useContext(Context);  
-  const handleColumn = ({ target: { value } }) => { 
+  const { state, setState } = useContext(Context);
+  const handleColumn = ({ target: { value } }) => {
     setState({ ...state, column: value, filtersOn: false, columnChange: false });
   };
-  const handleComparison = ({ target: { value } }) => {    
-    setState({ ...state, comparison: value });
+  const handleComparison = ({ target: { value } }) => {
+    setState({ ...state, comparison: value, filtersOn: false, columnChange: false });
   };
-  const handleNumberInput = ({ target: { value } }) => {    
-    setState({ ...state, value });    
+  const handleNumberInput = ({ target: { value } }) => {
+    setState({ ...state, value, filtersOn: false, columnChange: false });
   };
 
   const handleSubmit = () => {

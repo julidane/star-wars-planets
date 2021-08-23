@@ -21,7 +21,7 @@ function AllComponents() {
     data = data.filter((pName) => pName.name.toLowerCase().includes(filteredName));
   }
 
-  if (filtersOn) {    
+  if (filtersOn) {
     switch (comparison) {
     case 'maior que':
       data = data.filter((plnt) => parseInt(plnt[column], 10) > parseInt(value, 10));
@@ -38,7 +38,7 @@ function AllComponents() {
   }
 
   if (columnChange) {
-    options = options.filter((option) => (option.value !== column));    
+    options = options.filter((option) => (option.value !== column));
   }
 
   return (
