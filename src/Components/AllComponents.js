@@ -1,21 +1,14 @@
 import React, { useContext } from 'react';
-import { Context } from '../context/Context';
+import Context from '../context/Context';
 import InputName from './InputName';
 import Table from './Table';
 import NumericalFilters from './NumericalFilters';
 
 function AllComponents() {
   let { data } = useContext(Context);
-  const { state } = useContext(Context);
-  const { name: filteredName, column, value, filtersOn, columnChange } = state;
-  const { comparison } = state;
-  let options = [
-    { value: 'orbital_period', label: 'orbital_period' },
-    { value: 'diameter', label: 'diameter' },
-    { value: 'rotation_period', label: 'rotation_period' },
-    { value: 'surface_water', label: 'surface_water' },
-    { value: 'population', label: 'population' },
-  ];
+  const { filter } = useContext(Context);
+  const { name: filteredName, column, value, filtersOn } = filter;
+  const { comparison } = filter;
 
   if (filteredName) {
     data = data.filter((pName) => pName.name.toLowerCase().includes(filteredName));
@@ -37,15 +30,11 @@ function AllComponents() {
     }
   }
 
-  if (columnChange) {
-    options = options.filter((option) => (option.value !== column));
-  }
-
   return (
     <div>
       <InputName />
       <form>
-        <NumericalFilters options={ options } />
+        <NumericalFilters />
       </form>
       <Table data={ data } />
     </div>

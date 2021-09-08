@@ -1,23 +1,32 @@
-import React, { useContext } from 'react';
-import PropTypes from 'prop-types';
-import { Context } from '../context/Context';
+import React, { useContext, useState } from 'react';
+import Context from '../context/Context';
 
-function NumericalFilters(props) {
-  const { options } = props;
+function NumericalFilters() {
+  const initialOptions = [    
+    { value: 'orbital_period', label: 'orbital_period' },
+    { value: 'diameter', label: 'diameter' },
+    { value: 'rotation_period', label: 'rotation_period' },
+    { value: 'surface_water', label: 'surface_water' },
+    { value: 'population', label: 'population' },    
+  ];
+  const [options, setOptions] = useState(initialOptions);
 
-  const { state, setState } = useContext(Context);
+  const { filter, setFilter } = useContext(Context);
+  const { column } = filter;
+
   const handleColumn = ({ target: { value } }) => {
-    setState({ ...state, column: value, filtersOn: false, columnChange: false });
+    setFilter({ ...filter, column: value, filtersOn: false, columnChange: false });
   };
   const handleComparison = ({ target: { value } }) => {
-    setState({ ...state, comparison: value, filtersOn: false, columnChange: false });
+    setFilter({ ...filter, comparison: value, filtersOn: false, columnChange: false });
   };
   const handleNumberInput = ({ target: { value } }) => {
-    setState({ ...state, value, filtersOn: false, columnChange: false });
+    setFilter({ ...filter, value, filtersOn: false, columnChange: false });
   };
 
   const handleSubmit = () => {
-    setState({ ...state, filtersOn: true, columnChange: true });
+    setFilter({ ...filter, filtersOn: true, columnChange: true });
+    setOptions(options.filter((option) => option.value !== column));
   };
 
   return (
@@ -43,12 +52,5 @@ function NumericalFilters(props) {
     </div>
   );
 }
-
-NumericalFilters.propTypes = {
-  options: PropTypes.arrayOf(PropTypes.shape({
-    value: PropTypes.string.isRequired,
-    label: PropTypes.string.isRequired,
-  })).isRequired,
-};
 
 export default NumericalFilters;
