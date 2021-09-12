@@ -5,30 +5,43 @@ import Table from './Table';
 import NumericalFilters from './NumericalFilters';
 
 function AllComponents() {
-  let { data } = useContext(Context);
+  const { data } = useContext(Context);
   const { filter } = useContext(Context);
-  const { name: filteredName, column, value, filtersOn } = filter;
-  const { comparison } = filter;
+  const { filters: { filterByName, filterByNumericValues } } = filter;
+  const { name: filteredName } = filterByName;
+  const [comparisonValues] = filterByNumericValues;
 
-  if (filteredName) {
-    data = data.filter((pName) => pName.name.toLowerCase().includes(filteredName));
-  }
-
-  if (filtersOn) {
-    switch (comparison) {
-    case 'maior que':
-      data = data.filter((plnt) => parseInt(plnt[column], 10) > parseInt(value, 10));
-      break;
-    case 'menor que':
-      data = data.filter((plnt) => parseInt(plnt[column], 10) < parseInt(value, 10));
-      break;
-    case 'igual a':
-      data = data.filter((plnt) => plnt[column] === value);
-      break;
-    default:
-      data = data.filter((plnt) => parseInt(plnt[column], 10) > parseInt(value, 10));
+  const filterData = () => {
+    let filteredData = [...data];
+    if (filteredName) {
+      filteredData = filteredData.filter(
+        (pName) => pName.name.toLowerCase().includes(filteredName),
+      );
     }
-  }
+
+    if (comparisonValues) {
+      const { comparison, column, value } = comparisonValues;
+
+      switch (comparison) {
+      case 'maior que':
+        filteredData = filteredData
+          .filter((plnt) => parseInt(plnt[column], 10) > parseInt(value, 10));
+        break;
+      case 'menor que':
+        filteredData = filteredData
+          .filter((plnt) => parseInt(plnt[column], 10) < parseInt(value, 10));
+        break;
+      case 'igual a':
+        filteredData = filteredData
+          .filter((plnt) => plnt[column] === value);
+        break;
+      default:
+        return filteredData;
+      }
+    }
+
+    return filteredData;
+  };
 
   return (
     <div>
@@ -36,7 +49,7 @@ function AllComponents() {
       <form>
         <NumericalFilters />
       </form>
-      <Table data={ data } />
+      <Table data={ filterData() } />
     </div>
   );
 }

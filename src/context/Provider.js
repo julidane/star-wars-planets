@@ -4,10 +4,8 @@ import Context from './Context';
 
 function ApiProvider({ children }) {
   const [data, setData] = useState([]);
-  // const [state, setState] = useState({ filters: { filtersByName: {} , filterByNumericValues: [
   const [filter, setFilter] = useState({ filters: { filterByName: { name: '' },
-    filterByNumericValues: [
-    ] } });
+    filterByNumericValues: [] } });
 
   const [options, setOptions] = useState(
     [{ value: 'orbital_period', label: 'orbital_period' },
@@ -16,6 +14,8 @@ function ApiProvider({ children }) {
       { value: 'surface_water', label: 'surface_water' },
       { value: 'population', label: 'population' }],
   );
+
+  const [usedFilters, setUsedFilters] = useState({ used: [] });
 
   useEffect(() => {
     const getPlanets = async () => {
@@ -27,7 +27,8 @@ function ApiProvider({ children }) {
     getPlanets();
   }, []);
 
-  const context = { data, setData, filter, setFilter, options, setOptions };
+  const context = {
+    data, setData, filter, setFilter, options, setOptions, usedFilters, setUsedFilters };
 
   return (
     <Context.Provider value={ context }>
