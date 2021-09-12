@@ -3,7 +3,6 @@ import Context from '../context/Context';
 
 function NumericalFilters() {
   const initialOptions = [
-
     { value: 'orbital_period', label: 'orbital_period' },
     { value: 'diameter', label: 'diameter' },
     { value: 'rotation_period', label: 'rotation_period' },
