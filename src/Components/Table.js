@@ -46,7 +46,7 @@ function Table(props) {
               url } = planet;
             return (
               <tr key={ index }>
-                <td key={ planet[index] }>{name}</td>
+                <td key={ planet[index] } data-testid="planet-name">{name}</td>
                 <td key={ planet[index] }>{rotationPeriod}</td>
                 <td key={ planet[index] }>{orbitalPeriod}</td>
                 <td key={ planet[index] }>{diameter}</td>

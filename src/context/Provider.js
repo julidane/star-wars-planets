@@ -4,8 +4,15 @@ import Context from './Context';
 
 function ApiProvider({ children }) {
   const [data, setData] = useState([]);
-  const [filter, setFilter] = useState({ filters: { filterByName: { name: '' },
-    filterByNumericValues: [] } });
+  const [filter, setFilter] = useState(
+    { filters: {
+      filterByName: { name: '' },
+      filterByNumericValues: [],
+      order: {
+        column: 'name',
+        sort: 'ASC',
+      } } },
+  );
 
   const [options, setOptions] = useState(
     [{ value: 'orbital_period', label: 'orbital_period' },

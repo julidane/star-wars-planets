@@ -3,16 +3,30 @@ import Context from '../context/Context';
 import InputName from './InputName';
 import Table from './Table';
 import NumericalFilters from './NumericalFilters';
-import FilterButtons from './FilterButtons';
+import RemoveFilterButtons from './RemoveFilterButtons';
+import OrderFilter from './OrderFilter';
 
 function AllComponents() {
   const { data } = useContext(Context);
   const { filter } = useContext(Context);
-  const { filters: { filterByName, filterByNumericValues } } = filter;
+  const { filters: { filterByName, filterByNumericValues, order } } = filter;
   const { name: filteredName } = filterByName;
+  const { column: columnType, sort } = order;
 
   const filterData = () => {
     let filteredData = [...data];
+    console.log(columnType);
+
+    if (sort === 'ASC') {
+      filteredData
+        .sort(({ [columnType]: a }, { [columnType]: b }) => a.localeCompare(b))
+        .sort((a, b) => (parseInt(a[columnType], 10) - (parseInt(b[columnType], 10))));
+    } else if (sort === 'DESC') {
+      filteredData
+        .sort(({ [columnType]: a }, { [columnType]: b }) => b.localeCompare(a))
+        .sort((a, b) => (parseInt(b[columnType], 10) - (parseInt(a[columnType], 10))));
+    }
+
     if (filteredName) {
       filteredData = filteredData.filter(
         (pName) => pName.name.toLowerCase().includes(filteredName),
@@ -46,8 +60,9 @@ function AllComponents() {
       <InputName />
       <form>
         <NumericalFilters />
+        <OrderFilter />
       </form>
-      <FilterButtons />
+      <RemoveFilterButtons />
       <Table data={ filterData() } />
     </div>
   );

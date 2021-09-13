@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import Context from '../context/Context';
 
-function FilterButtons() {
+function RemoveFilterButtons() {
   const { usedFilters, setUsedFilters, setOptions, data, setData, filter, setFilter,
   } = useContext(Context);
   const { filters: { filterByNumericValues } } = filter;
@@ -61,4 +61,4 @@ function FilterButtons() {
   );
 }
 
-export default FilterButtons;
+export default RemoveFilterButtons;
