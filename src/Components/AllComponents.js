@@ -3,13 +3,13 @@ import Context from '../context/Context';
 import InputName from './InputName';
 import Table from './Table';
 import NumericalFilters from './NumericalFilters';
+import FilterButtons from './FilterButtons';
 
 function AllComponents() {
   const { data } = useContext(Context);
   const { filter } = useContext(Context);
   const { filters: { filterByName, filterByNumericValues } } = filter;
   const { name: filteredName } = filterByName;
-  const [comparisonValues] = filterByNumericValues;
 
   const filterData = () => {
     let filteredData = [...data];
@@ -19,9 +19,7 @@ function AllComponents() {
       );
     }
 
-    if (comparisonValues) {
-      const { comparison, column, value } = comparisonValues;
-
+    filterByNumericValues.forEach(({ comparison, column, value }) => {
       switch (comparison) {
       case 'maior que':
         filteredData = filteredData
@@ -38,7 +36,7 @@ function AllComponents() {
       default:
         return filteredData;
       }
-    }
+    });
 
     return filteredData;
   };
@@ -49,6 +47,7 @@ function AllComponents() {
       <form>
         <NumericalFilters />
       </form>
+      <FilterButtons />
       <Table data={ filterData() } />
     </div>
   );

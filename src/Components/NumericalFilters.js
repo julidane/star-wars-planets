@@ -2,16 +2,9 @@ import React, { useContext, useState } from 'react';
 import Context from '../context/Context';
 
 function NumericalFilters() {
-  const initialOptions = [
-    { value: 'orbital_period', label: 'orbital_period' },
-    { value: 'diameter', label: 'diameter' },
-    { value: 'rotation_period', label: 'rotation_period' },
-    { value: 'surface_water', label: 'surface_water' },
-    { value: 'population', label: 'population' },
-  ];
-  const [options, setOptions] = useState(initialOptions);
-
-  const { filter, setFilter, usedFilters, setUsedFilters } = useContext(Context);
+  const { filter, setFilter, usedFilters, setUsedFilters, options, setOptions,
+  } = useContext(Context);
+  const { filters: { filterByNumericValues } } = filter;
 
   const INITIAL_STATE = {
     column: 'orbital_period',
@@ -28,8 +21,10 @@ function NumericalFilters() {
   const { column, comparison, value } = filterState;
 
   const handleSubmit = () => {
-    setFilter({ filters: { ...filter.filters, filterByNumericValues: [filterState] } });
-    setUsedFilters({ ...usedFilters, filterState });
+    setFilter({ filters: { ...filter.filters,
+      filterByNumericValues: [...filterByNumericValues, filterState] } });
+
+    setUsedFilters({ used: [...usedFilters.used, filterState] });
     setOptions(options.filter((option) => option.value !== column));
     setFilterState({ ...INITIAL_STATE });
   };
