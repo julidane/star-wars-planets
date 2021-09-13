@@ -5,6 +5,7 @@ import Table from './Table';
 import NumericalFilters from './NumericalFilters';
 import RemoveFilterButtons from './RemoveFilterButtons';
 import OrderFilter from './OrderFilter';
+import Title from './Title';
 
 function AllComponents() {
   const { data } = useContext(Context);
@@ -57,6 +58,7 @@ function AllComponents() {
 
   return (
     <div>
+      <Title />
       <InputName />
       <form>
         <NumericalFilters />

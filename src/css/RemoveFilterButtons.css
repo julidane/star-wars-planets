@@ -1,0 +1,30 @@
+.remove-filter-buttons-div {
+  color: white;
+  display: flex;
+  font-family: monospace;
+  font-weight: 900;
+  justify-content: center;
+}
+
+.remove-filter-buttons-div ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.remove-p-button {
+  align-items: center;
+  display: flex;
+  gap: 10px;
+
+}
+
+.remove-filter-buttons-div button {
+  height: fit-content;
+}
+
+.remove-filter-buttons-div button:hover {
+  background-color: #7effd7;
+  border-style: none;
+  color: black;
+}

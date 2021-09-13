@@ -1,44 +1,13 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-.App-header {
-  align-items: center;
-  background-color: #282c34;
-  color: white;
-  display: flex;
-  flex-direction: column;
-  font-size: calc(10px + 2vmin);
-  justify-content: center;
-  min-height: 100vh;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-.table {
-  border: 3px solid #ddd;
-  border-collapse: collapse;
-  font-family: Trebuchet MS , Arial , Helvetica , sans-serif;
-  text-align: center;
+html, body {
+  height: 100%;
+  margin: auto;
   width: 100%;
 }
 
-.table td, .table th {
-  border: 1px solid #ddd;
-  padding: 8px;
+body {
+  background-color: #1a1710;
 }
 
-.table th {
-  background-color: #4caf50;
-  color: white;
-  padding-bottom: 12px;
-  padding-top: 12px;
+.App {
   text-align: center;
 }

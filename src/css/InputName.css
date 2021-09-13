@@ -1,0 +1,27 @@
+.input-name-div {
+  align-items: center;
+  background-color: #1a1710;
+  display: flex;
+  gap: 5px;
+  justify-content: center;
+  margin: auto;
+  padding: 5px;
+  width: fit-content;
+}
+
+.input-name-div p {
+  color: #7effd7;
+  font-family: monospace;
+  font-size: large;
+}
+
+.input-name-div input {
+  background-color: #1a1710;
+  border: 1px solid #7effd7;
+  border-radius: 5px;
+  box-shadow: 0 0 3px #7effd7;
+  color: white;
+  margin: 10px;
+  padding: 5px;
+  width: 130px;
+}

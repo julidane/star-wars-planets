@@ -1,0 +1,63 @@
+.numerical-filters-div {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: auto;
+  padding: 5px;
+  width: fit-content;
+}
+
+.numerical-filters-div p {
+  color: #bef3fb;
+  font-family: monospace;
+  font-size: large;
+}
+
+.numerical-filters-div select {
+  background-color: #1a1710;
+  border: 1px solid #bef3fb;
+  border-radius: 5px;
+  box-shadow: 0 0 3px #bef3fb;
+  color: #bef3fb;
+  font-family: monospace;
+  font-size: 60 vh;
+  height: 30px;
+  margin: 10px;
+  padding: 2px;
+}
+
+.numerical-filters-div input {
+  background-color: #1a1710;
+  border: 1px solid #bef3fb;
+  border-radius: 5px;
+  box-shadow: 0 0 3px #bef3fb;
+  color: white;
+  height: 30px;
+  margin: 10px;
+  width: 60px;
+}
+
+input [ type = 'number' i ] {
+  padding: 0 5px;
+}
+
+.filter-button {
+  background-color: #1a1710;
+  border: 1px solid #bef3fb;
+  border-radius: 5px;
+  box-shadow: 0 0 3px #bef3fb;
+  color: #bef3fb;
+  font-family: monospace;
+  font-size: 60 vh;
+  height: 30px;
+  margin: 10px;
+}
+
+.filter-button:hover {
+  background-color: #bef3fb;
+  border: 1px solid #bef3fb;
+  border-radius: 5px;
+  color: #1a1710;
+  height: 30px;
+}

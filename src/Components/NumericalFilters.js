@@ -1,5 +1,6 @@
 import React, { useContext, useState } from 'react';
 import Context from '../context/Context';
+import '../css/NumericalFilters.css';
 
 function NumericalFilters() {
   const { filter, setFilter, usedFilters, setUsedFilters, options, setOptions,
@@ -30,7 +31,8 @@ function NumericalFilters() {
   };
 
   return (
-    <div>
+    <div className="numerical-filters-div">
+      <p>Search By Parameters</p>
       <select
         data-testid="column-filter"
         onChange={ handleChange }
@@ -59,6 +61,7 @@ function NumericalFilters() {
         value={ value }
       />
       <button
+        className="filter-button"
         type="button"
         data-testid="button-filter"
         onClick={ handleSubmit }

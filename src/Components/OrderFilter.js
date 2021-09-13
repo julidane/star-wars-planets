@@ -1,5 +1,6 @@
 import React, { useContext, useState } from 'react';
 import Context from '../context/Context';
+import '../css/OrderFilter.css';
 
 function OrderFilter() {
   const { filter, setFilter } = useContext(Context);
@@ -38,7 +39,7 @@ function OrderFilter() {
   };
 
   return (
-    <div>
+    <div className="order-filter-div">
       <label htmlFor="column-sort">
         {' '}
         Order by
@@ -52,35 +53,38 @@ function OrderFilter() {
           ))}
         </select>
       </label>
-      <label htmlFor="asc">
-        Asc
-        <input
-          type="radio"
-          name="order"
-          id="asc"
-          data-testid="column-sort-input-asc"
-          value="ASC"
-          onChange={ handleChangeRadio }
-        />
-      </label>
-      <label htmlFor="desc">
-        Desc
-        <input
-          type="radio"
-          name="order"
-          id="desc"
-          data-testid="column-sort-input-desc"
-          value="DESC"
-          onChange={ handleChangeRadio }
-        />
-      </label>
-      <button
-        type="button"
-        data-testid="column-sort-button"
-        onClick={ handleSubmit }
-      >
-        Order Now
-      </button>
+      <div className="radios-and-button">
+        <label htmlFor="asc">
+          Asc
+          <input
+            type="radio"
+            name="order"
+            id="asc"
+            data-testid="column-sort-input-asc"
+            value="ASC"
+            onChange={ handleChangeRadio }
+          />
+        </label>
+        <label htmlFor="desc">
+          Desc
+          <input
+            type="radio"
+            name="order"
+            id="desc"
+            data-testid="column-sort-input-desc"
+            value="DESC"
+            onChange={ handleChangeRadio }
+          />
+        </label>
+        <button
+          className="order-now-button"
+          type="button"
+          data-testid="column-sort-button"
+          onClick={ handleSubmit }
+        >
+          Order Now
+        </button>
+      </div>
 
     </div>
   );

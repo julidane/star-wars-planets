@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import Context from '../context/Context';
+import '../css/RemoveFilterButtons.css';
 
 function RemoveFilterButtons() {
   const { usedFilters, setUsedFilters, setOptions, data, setData, filter, setFilter,
@@ -38,22 +39,23 @@ function RemoveFilterButtons() {
   };
 
   return (
-    <div>
+    <div className="remove-filter-buttons-div">
       <ul>
-
         {used.map((item) => (
           <li key={ item.column } data-testid="filter">
-            <p>
-              {`${item.column} ${item.comparison} ${item.value}`}
-              {' '}
-            </p>
-            <button
-              type="button"
-              value={ item.column }
-              onClick={ handleClick }
-            >
-              X
-            </button>
+            <div className="remove-p-button">
+              <p>
+                {`${item.column} ${item.comparison} ${item.value}`}
+                {' '}
+              </p>
+              <button
+                type="button"
+                value={ item.column }
+                onClick={ handleClick }
+              >
+                X
+              </button>
+            </div>
           </li>
         ))}
       </ul>
