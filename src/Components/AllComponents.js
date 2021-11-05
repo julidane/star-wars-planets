@@ -6,6 +6,7 @@ import NumericalFilters from './NumericalFilters';
 import RemoveFilterButtons from './RemoveFilterButtons';
 import OrderFilter from './OrderFilter';
 import Title from './Title';
+import '../css/AllComponents.css';
 
 function AllComponents() {
   const { data } = useContext(Context);
@@ -57,7 +58,7 @@ function AllComponents() {
   };
 
   return (
-    <div>
+    <div className="all-components">
       <Title />
       <InputName />
       <form>
