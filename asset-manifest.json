@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/star-wars-planets/static/css/main.642b24e0.chunk.css",
-    "main.js": "/star-wars-planets/static/js/main.a5bf8622.chunk.js",
-    "main.js.map": "/star-wars-planets/static/js/main.a5bf8622.chunk.js.map",
+    "main.css": "/star-wars-planets/static/css/main.1c9f3463.chunk.css",
+    "main.js": "/star-wars-planets/static/js/main.faff4909.chunk.js",
+    "main.js.map": "/star-wars-planets/static/js/main.faff4909.chunk.js.map",
     "runtime-main.js": "/star-wars-planets/static/js/runtime-main.d3fb0412.js",
     "runtime-main.js.map": "/star-wars-planets/static/js/runtime-main.d3fb0412.js.map",
     "static/js/2.b350eca9.chunk.js": "/star-wars-planets/static/js/2.b350eca9.chunk.js",
     "static/js/2.b350eca9.chunk.js.map": "/star-wars-planets/static/js/2.b350eca9.chunk.js.map",
     "index.html": "/star-wars-planets/index.html",
-    "precache-manifest.c48e22039c9cbff4a6c719408618e636.js": "/star-wars-planets/precache-manifest.c48e22039c9cbff4a6c719408618e636.js",
+    "precache-manifest.f8ce9b71371550a7431cb543945e3221.js": "/star-wars-planets/precache-manifest.f8ce9b71371550a7431cb543945e3221.js",
     "service-worker.js": "/star-wars-planets/service-worker.js",
-    "static/css/main.642b24e0.chunk.css.map": "/star-wars-planets/static/css/main.642b24e0.chunk.css.map",
+    "static/css/main.1c9f3463.chunk.css.map": "/star-wars-planets/static/css/main.1c9f3463.chunk.css.map",
     "static/js/2.b350eca9.chunk.js.LICENSE.txt": "/star-wars-planets/static/js/2.b350eca9.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.d3fb0412.js",
     "static/js/2.b350eca9.chunk.js",
-    "static/css/main.642b24e0.chunk.css",
-    "static/js/main.a5bf8622.chunk.js"
+    "static/css/main.1c9f3463.chunk.css",
+    "static/js/main.faff4909.chunk.js"
   ]
 }
