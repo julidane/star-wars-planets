@@ -1,9 +1,15 @@
 .table {
-  border: 3px solid black;
+  border: 1px solid black;
   border-collapse: collapse;
   font-family: monospace;
   margin-top: 10px;
   text-align: center;
+  width: 100%;
+}
+
+.table td {
+  flex-wrap: wrap;
+  overflow: hidden;
 }
 
 .table td, .table th {
@@ -12,7 +18,7 @@
 }
 
 .table th {
-  background-color: #7effd7;
+  background-color: gold;
   color: black;
   font-size: larger;
   padding-bottom: 12px;
@@ -21,21 +27,52 @@
 }
 
 tr:nth-child( even ) {
-  background-color: black;
-  color: #7effd7;
+  background: rgba(0, 0, 0, 0.6);
+  color: white;
 }
 
 tr:nth-child( odd ) {
-  background-color: black;
+  background: rgba(0, 0, 0, 0.6);
   color: #bef3fb;
 }
 
 tr:nth-child( even ):hover {
-  background-color: #282c34;
+  background-color: black;
   font-weight: 800;
 }
 
 tr:nth-child( odd ):hover {
-  background-color: #282c34;
+  background-color: black;
   font-weight: 800;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0 20px;
+  text-align: center;
+}
+
+ul a {
+  color: gold;
+  font-weight: 900;
+  text-align: center;
+  white-space: nowrap;
+}
+
+li {
+  display: contents;
+}
+
+a:hover {
+  background-color: red;
+  color: #1a1710;
+  font-size: medium;
+  font-weight: 900;
+}
+
+.url {
+  color: gold;
+  font-weight: 900;
+  padding: 0 20px;
+  white-space: nowrap;
 }

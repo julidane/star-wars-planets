@@ -14,10 +14,9 @@ function AllComponents() {
   const { filters: { filterByName, filterByNumericValues, order } } = filter;
   const { name: filteredName } = filterByName;
   const { column: columnType, sort } = order;
-
-  const filterData = () => {
-    let filteredData = [...data];
-    console.log(columnType);
+  
+  const filterData = () => {    
+    let filteredData = [...data];    
 
     if (sort === 'ASC') {
       filteredData

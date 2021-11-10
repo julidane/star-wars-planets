@@ -1,6 +1,5 @@
 .input-name-div {
   align-items: center;
-  background-color: #1a1710;
   display: flex;
   gap: 5px;
   justify-content: center;
@@ -10,16 +9,16 @@
 }
 
 .input-name-div p {
-  color: #7effd7;
+  color: white;
   font-family: monospace;
   font-size: large;
 }
 
 .input-name-div input {
-  background-color: #1a1710;
-  border: 1px solid #7effd7;
+  background-color: transparent;
+  border: 1px solid red;
   border-radius: 5px;
-  box-shadow: 0 0 3px #7effd7;
+  box-shadow: 0 0 3px red;
   color: white;
   margin: 10px;
   padding: 5px;

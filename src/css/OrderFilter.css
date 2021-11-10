@@ -4,7 +4,7 @@
   flex-wrap: wrap;
   justify-content: center;
   margin: auto;
-  padding: 5px;
+  padding: 5px 5px 10px;
   width: fit-content;
 }
 
@@ -16,18 +16,18 @@
 
 .order-filter-div label {
   align-items: center;
-  color: #7effd7;
+  color: white;
   display: flex;
   font-family: monospace;
   font-size: large;
 }
 
 .order-filter-div select {
-  background-color: #1a1710;
-  border: 1px solid #7effd7;
+  background-color: transparent;
+  border: 1px solid red;
   border-radius: 5px;
-  box-shadow: 0 0 3px #7effd7;
-  color: #7effd7;
+  box-shadow: 0 0 3px red;
+  color: red;
   font-family: monospace;
   font-size: 60 vh;
   height: 30px;
@@ -36,13 +36,14 @@
 }
 
 .order-now-button {
-  background-color: #1a1710;
-  border: 1px solid #7effd7;
+  background-color: red;
+  border: 1px solid red;
   border-radius: 5px;
-  box-shadow: 0 0 3px #7effd7;
-  color: #7effd7;
+  box-shadow: 0 0 3px red;
+  color: white;
   font-family: monospace;
   font-size: 60 vh;
+  font-weight: 600;
   height: 30px;
   margin: 10px;
   white-space: nowrap;
@@ -50,10 +51,10 @@
 }
 
 .order-now-button:hover {
-  background-color: #7effd7;
-  border: 1px solid #7effd7;
+  background-color: transparent;
+  border: 1px solid red;
   border-radius: 5px;
-  color: #1a1710;
+  color: red;
   height: 30px;
   width: fit-content;
 }

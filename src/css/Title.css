@@ -4,16 +4,24 @@ body {
   width: 100%;
 }
 
+@font-face {
+  font-family: Starwars;
+  src: url('../font/Starjedi.ttf');
+}
+
 header {
-  border-bottom: 0.5px solid #bef3fb;
+  border-bottom: 0.5px solid gold;
   margin-bottom: 15px;
   margin-right: 0;
   width: 100%;
 }
 
 h1 {
-  color: #7effd7;
-  font-family: monospace;
+  color: white;
+  font-family: Starwars;
+  font-size: 4vh;
+  font-weight: 900;
   text-align: center;
+  text-shadow: 2px 3px 5px red;
 }
 

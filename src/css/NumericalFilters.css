@@ -9,13 +9,13 @@
 }
 
 .numerical-filters-div p {
-  color: #bef3fb;
+  color: white;
   font-family: monospace;
   font-size: large;
 }
 
 .numerical-filters-div select {
-  background-color: #1a1710;
+  background-color: transparent;
   border: 1px solid #bef3fb;
   border-radius: 5px;
   box-shadow: 0 0 3px #bef3fb;
@@ -28,7 +28,7 @@
 }
 
 .numerical-filters-div input {
-  background-color: #1a1710;
+  background-color: transparent;
   border: 1px solid #bef3fb;
   border-radius: 5px;
   box-shadow: 0 0 3px #bef3fb;
@@ -43,21 +43,26 @@ input [ type = 'number' i ] {
 }
 
 .filter-button {
-  background-color: #1a1710;
+  background-color: #bef3fb;
   border: 1px solid #bef3fb;
   border-radius: 5px;
   box-shadow: 0 0 3px #bef3fb;
-  color: #bef3fb;
+  color: black;
   font-family: monospace;
   font-size: 60 vh;
+  font-weight: 600;
   height: 30px;
   margin: 10px;
 }
 
 .filter-button:hover {
-  background-color: #bef3fb;
+  background-color: transparent;
   border: 1px solid #bef3fb;
   border-radius: 5px;
-  color: #1a1710;
+  color: #bef3fb;
   height: 30px;
+}
+
+select option {
+  background-color: black;
 }
